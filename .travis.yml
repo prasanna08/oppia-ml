@@ -27,6 +27,7 @@ notifications:
 install:
   - set -e
   - pushd $TRAVIS_BUILD_DIR
+  - pip install --upgrade pip setuptools wheel
   - source scripts/setup.sh || exit 1
 
 script:
