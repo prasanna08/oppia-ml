@@ -17,9 +17,10 @@ matrix:
 notifications:
   email:
     recipients:
-    - sean@seanlip.org
-    - henning.benmax@gmail.com
-    - wxy.xinyu@gmail.com
+     - prasannapatil08@gmail.com
+#    - sean@seanlip.org
+#    - henning.benmax@gmail.com
+#    - wxy.xinyu@gmail.com
     on_success: change
     on_failure: change
 
@@ -29,7 +30,7 @@ install:
   - source scripts/setup.sh || exit 1
 
 script:
-  - if [ $RUN_BACKEND_TESTS == 'true' ] && [ $REPORT_BACKEND_COVERAGE == 'false' ]; then bash scripts/run_backend_tests.sh; fi
+  - if [ $RUN_BACKEND_TESTS == 'true' ]; then bash scripts/run_backend_tests.sh; fi
   - if [ $RUN_LINT == 'true' ]; then bash scripts/install_third_party.sh; python scripts/pre_commit_linter.py --path=.; fi
 
 before_cache:
