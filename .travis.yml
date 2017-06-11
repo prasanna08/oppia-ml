@@ -27,6 +27,8 @@ notifications:
 install:
   - set -e
   - pushd $TRAVIS_BUILD_DIR
+  # Upgrade pip and install wheel. Otherwise Travis will try to compile pip
+  # packages from source and fails to install them.
   - pip install --upgrade pip setuptools wheel
   - source scripts/setup.sh || exit 1
 
